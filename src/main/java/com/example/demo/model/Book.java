@@ -9,15 +9,25 @@ import org.springframework.stereotype.Component;
  * @author zhiguo.zheng
  * @time 2019/4/28 23:15
  */
-@Component
-@ConfigurationProperties(prefix = "book")
+//@Component
+//@ConfigurationProperties(prefix = "book")
 public class Book {
+
+    private Integer id;
 
     private String name;
 
     private String author;
 
     private Float price;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -46,7 +56,8 @@ public class Book {
     @Override
     public String toString() {
         return "Book{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", author='" + author + '\'' +
                 ", price=" + price +
                 '}';
