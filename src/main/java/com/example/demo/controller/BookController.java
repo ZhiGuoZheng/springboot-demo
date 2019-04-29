@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,8 +22,19 @@ public class BookController {
 //    @Autowired
 //    private Book book;
 
-    @GetMapping(path = {"book", "books"})
-    public ModelAndView book() {
+    @GetMapping("/book")
+    public Book book() {
+        Book book = new Book();
+        book.setId(1);
+        book.setName("三国演义");
+        book.setAuthor("罗贯中");
+        book.setPrice(30f);
+        book.setPublicationDate(new Date());
+        return book;
+    }
+
+    @GetMapping(path = {"books"})
+    public ModelAndView books() {
         List<Book> books = new ArrayList<>();
 
         Book b1 = new Book();

@@ -1,7 +1,11 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
 
 /**
  * 书籍
@@ -19,7 +23,11 @@ public class Book {
 
     private String author;
 
+    @JsonIgnore
     private Float price;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date publicationDate;
 
     public Integer getId() {
         return id;
@@ -53,6 +61,14 @@ public class Book {
         this.price = price;
     }
 
+    public Date getPublicationDate() {
+        return publicationDate;
+    }
+
+    public void setPublicationDate(Date publicationDate) {
+        this.publicationDate = publicationDate;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -60,6 +76,7 @@ public class Book {
                 ", name='" + name + '\'' +
                 ", author='" + author + '\'' +
                 ", price=" + price +
+                ", publicationDate=" + publicationDate +
                 '}';
     }
 }
