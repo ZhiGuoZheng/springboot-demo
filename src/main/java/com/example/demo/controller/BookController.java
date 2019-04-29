@@ -17,7 +17,7 @@ public class BookController {
     @Autowired
     private Book book;
 
-    @GetMapping(path = {"/book"})
+    @GetMapping(path = {"/book", "books"})
     public String book() {
         return book.toString();
     }
