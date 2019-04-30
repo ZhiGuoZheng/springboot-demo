@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 /**
- * 书籍
+ * 书籍实体类
  *
  * @author zhiguo.zheng
  * @time 2019/4/28 23:15
@@ -23,10 +23,10 @@ public class Book {
 
     private String author;
 
-    @JsonIgnore
-    private Float price;
+//    @JsonIgnore
+    protected Float price;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+//    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date publicationDate;
 
     public Integer getId() {
