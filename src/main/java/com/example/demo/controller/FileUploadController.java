@@ -49,7 +49,9 @@ public class FileUploadController {
         // 重命名文件名
         String newName = UUID.randomUUID().toString() + oldName.substring(oldName.lastIndexOf("."), oldName.length());
         try {
+            // 保存文件
             uploadFile.transferTo(new File(folder, newName));
+            // 返回文件存储路径
             String filePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + "/static/uploadFile/" + format + "/" + newName;
             return filePath;
         } catch (IOException e) {
@@ -66,7 +68,10 @@ public class FileUploadController {
      */
     @PostMapping(path = "/uploads")
     public String uploads(MultipartFile[] uploadFiles, HttpServletRequest request) {
+
         List<String> paths = new ArrayList<>();
+
+        // 遍历文件集合
         for (MultipartFile file : uploadFiles) {
             String filePath = upload(file, request);
             paths.add(filePath);
