@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -8,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -23,6 +26,12 @@ public class FileUploadController {
     // 日期格式
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 
+    /**
+     * 上传单个文件
+     * @param uploadFile 文件
+     * @param request 请求
+     * @return 文件路径
+     */
     @PostMapping(path = "/upload")
     public String upload(MultipartFile uploadFile, HttpServletRequest request) {
 
@@ -47,5 +56,21 @@ public class FileUploadController {
             e.printStackTrace();
         }
         return "上传失败";
+    }
+
+    /**
+     * 上传多个文件
+     * @param uploadFiles 文件集合
+     * @param request 请求
+     * @return 文件路径
+     */
+    @PostMapping(path = "/uploads")
+    public String uploads(MultipartFile[] uploadFiles, HttpServletRequest request) {
+        List<String> paths = new ArrayList<>();
+        for (MultipartFile file : uploadFiles) {
+            String filePath = upload(file, request);
+            paths.add(filePath);
+        }
+        return paths.toString();
     }
 }
