@@ -1,7 +1,8 @@
 package com.example.demo.config;
 
-import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.util.HashMap;
@@ -23,5 +24,15 @@ public class GlobalConfig {
         map.put("username", "罗贯中");
         map.put("gender", "男");
         return map;
+    }
+
+    @InitBinder("s")
+    public void initSimpleBook(WebDataBinder binder) {
+        binder.setFieldDefaultPrefix("s.");
+    }
+
+    @InitBinder("a")
+    public void initAuthor(WebDataBinder binder) {
+        binder.setFieldDefaultPrefix("a.");
     }
 }

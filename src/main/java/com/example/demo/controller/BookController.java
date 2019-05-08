@@ -1,8 +1,11 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.Author;
 import com.example.demo.model.Book;
+import com.example.demo.model.SimpleBook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -70,5 +73,10 @@ public class BookController {
         mv.addObject("books", books);
         mv.setViewName("books");
         return mv;
+    }
+
+    @GetMapping("/bookAndAuthor")
+    public String bookAndAuthor(@ModelAttribute("s")SimpleBook simpleBook, @ModelAttribute("a") Author author) {
+        return simpleBook.toString() + ">>>" + author.toString();
     }
 }
