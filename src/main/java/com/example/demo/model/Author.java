@@ -3,7 +3,7 @@ package com.example.demo.model;
 /**
  * 作者
  *
- * @author 郑智国 (zhiguo.zheng@ucarinc.com)
+ * @author 郑智国 (zhengzhiguo7@gmail.com)
  * @time 2019/5/8 19:25
  */
 public class Author {

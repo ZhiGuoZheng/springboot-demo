@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * 添加全局数据
  *
- * @author 郑智国 (zhiguo.zheng@ucarinc.com)
+ * @author 郑智国 (zhengzhiguo7@gmail.com)
  * @time 2019/5/8 19:07
  */
 

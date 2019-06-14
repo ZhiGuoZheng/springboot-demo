@@ -17,7 +17,7 @@ import java.util.UUID;
 /**
  * 文件上传 Controller
  *
- * @author 郑智国 (zhiguo.zheng@ucarinc.com)
+ * @author 郑智国 (zhengzhiguo7@gmail.com)
  * @time 2019/4/30 17:02
  */
 @RestController

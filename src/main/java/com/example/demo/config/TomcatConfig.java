@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * 将 HTTP 请求重定向为 HTTPS
  * 配置一个 TomcatServletWebServerFactory, 然后添加一个 Tomcat 中的 Connector, 并将请求转发到 8443 上
  *
- * @author 郑智国 (zhiguo.zheng@ucarinc.com)
+ * @author 郑智国 (zhengzhiguo7@gmail.com)
  * @time 2019/4/25 18:00
  */
 @Configuration

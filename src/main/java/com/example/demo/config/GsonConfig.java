@@ -11,7 +11,7 @@
 ///**
 // * 提供一个自定义的 GsonHttpMessageConvertor 实例
 // *
-// * @author 郑智国 (zhiguo.zheng@ucarinc.com)
+// * @author 郑智国 (zhengzhiguo7@gmail.com)
 // * @time 2019/4/30 9:25
 // */
 //@Configuration

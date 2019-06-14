@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * 书籍 Controller
  *
- * @author zhiguo.zheng
+ * @author 郑智国 (zhengzhiguo7@gmail.com)
  * @time 2019/4/28 23:20
  */
 @RestController

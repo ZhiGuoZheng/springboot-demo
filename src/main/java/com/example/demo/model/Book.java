@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * 书籍实体类
  *
- * @author zhiguo.zheng
+ * @author 郑智国 (zhengzhiguo7@gmail.com)
  * @time 2019/4/28 23:15
  */
 //@Component
