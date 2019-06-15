@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 提供一个自定以的 FastJsonHttpMessageConverter
+ * 提供一个自定义的 FastJsonHttpMessageConverter
  *
  * @author 郑智国 (zhengzhiguo7@gmail.com)
  * @time 2019/4/30 9:54
