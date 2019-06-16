@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.alibaba.fastjson.JSON;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -8,9 +7,8 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,9 +21,6 @@ import java.util.UUID;
 @RestController
 public class FileUploadController {
 
-    // 日期格式
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-
     /**
      * 上传单个文件
      * @param uploadFile 文件
@@ -36,10 +31,10 @@ public class FileUploadController {
     public String upload(MultipartFile uploadFile, HttpServletRequest request) {
 
         String realPath = "E:\\Project_Zheng\\springboot-demo\\src\\main\\resources\\static\\uploadFile\\";
-        String format = sdf.format(new Date());
+        String localDate = LocalDate.now().toString();
 
         // 根据日期创建文件路径
-        File folder = new File(realPath + format);
+        File folder = new File(realPath + localDate);
         // 路径不存在时创建目录
         if (!folder.isDirectory()) {
             folder.mkdirs();
@@ -52,7 +47,7 @@ public class FileUploadController {
             // 保存文件
             uploadFile.transferTo(new File(folder, newName));
             // 返回文件存储路径
-            String filePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + "/static/uploadFile/" + format + "/" + newName;
+            String filePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + "/static/uploadFile/" + localDate + "/" + newName;
             return filePath;
         } catch (IOException e) {
             e.printStackTrace();
