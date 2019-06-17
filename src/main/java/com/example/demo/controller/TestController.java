@@ -28,4 +28,10 @@ public class TestController {
             System.out.println(key + ">>>>>" + value);
         }
     }
+
+    @GetMapping("/testHello")
+    public String errorHello() {
+        int i = 1 / 0;
+        return "testHello";
+    }
 }
